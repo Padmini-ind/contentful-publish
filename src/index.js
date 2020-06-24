@@ -82,7 +82,7 @@ class App extends React.Component {
 	     entry.fields[name] === "dateTime"
 	  ) {
 		  const ago = relativeDate(new Date(this.props.extension.entry.getSys().updatedAt)
-		  entry.fields.dateTime = ago
+		  entry.fields[name].dateTime = "test"
 	  }
     }
 
