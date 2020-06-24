@@ -79,7 +79,7 @@ class App extends React.Component {
         entryReferenceIds.push(entry.fields[name][locale].sys.id)
       }
 	  if(
-	     entry.fields === "dateTime"
+	     entry.fields[name] === "dateTime"
 	  ) {
 		  const ago = relativeDate(new Date(this.props.extension.entry.getSys().updatedAt)
 		  entry.fields.dateTime = ago
