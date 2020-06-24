@@ -65,12 +65,15 @@ class App extends React.Component {
   }
 
   unpublishedReferences = entry => {
+    console.log("unpublished references")
     const referenceFieldNames = []
     const entryReferenceIds = []
 
     for (let name in entry.fields) {
       let locale = this.props.extension.locales.default
       if (
+	console.log("inside if")
+	console.log(entry.fields[name])
         entry.fields[name][locale].sys &&
         entry.fields[name][locale].sys.type === "Link" &&
         entry.fields[name][locale].sys.linkType === "Entry"
@@ -79,6 +82,8 @@ class App extends React.Component {
         entryReferenceIds.push(entry.fields[name][locale].sys.id)
       }
       if (
+	console.log("inside if two")
+	console.log(entry.fields[name])
 	 entry.fields[name] === "dateTime"
       ) {
 	  const ago = relativeDate(new Date(this.props.extension.entry.getSys().updatedAt)
@@ -163,6 +168,7 @@ class App extends React.Component {
   }
 
   onClickPublish = async () => {
+    console.log("clicked")
     this.setState({ working: true })
 
     const ext = this.props.extension
